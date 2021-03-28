@@ -134,33 +134,39 @@ function init() {
 }
 
 function spawnEnemies() {
-    setInterval(() => {
-        const radius = Math.random() * (60 - 15) + 15
+    const radius = Math.random() * (150 - 15) + 15
 
-        let x
-        let y
+    let x
+    let y
 
-        if (Math.random() < 0.5) {
-            x = Math.random() < 0.5 ? 0 - radius : canvas.width + radius
-            y = Math.random() * canvas.height
+    if (Math.random() < 0.5) {
+        x = Math.random() < 0.5 ? 0 - radius : canvas.width + radius
+        y = Math.random() * canvas.height
 
-        } else {
-            x = Math.random() * canvas.width
-            y = Math.random() < 0.5 ? 0 - radius : canvas.height + radius
-        }
-        const color = `hsl(${Math.random() * 360},50%, 50%)`
-        const angle = Math.atan2(
-            centerY - y,
-            centerX - x
-        )
-        const velocity = {
-            x: Math.cos(angle) * 3,
-            y: Math.sin(angle) * 3
-        }
-        enemies.push(new Enemy(x, y, radius, color, velocity))
-
-    }, 1000)
+    } else {
+        x = Math.random() * canvas.width
+        y = Math.random() < 0.5 ? 0 - radius : canvas.height + radius
+    }
+    const color = `hsl(${Math.random() * 360},50%, 50%)`
+    const angle = Math.atan2(
+        centerY - y,
+        centerX - x
+    )
+    const velocity = {
+        x: Math.cos(angle) * 5,
+        y: Math.sin(angle) * 5
+    }
+    enemies.push(new Enemy(x, y, radius, color, velocity))
+    console.log('enemy spawned')
 }
+
+
+
+let spawnEnemiesInterval
+
+
+
+
 
 let animationID
 let score = 0
@@ -190,9 +196,11 @@ function animate() {
         // end game condition
         const dist = Math.hypot(player.x - enemy.x, player.y - enemy.y)
         if (dist - enemy.radius - player.radius < 0) {
+            clearInterval(spawnEnemiesInterval)
             cancelAnimationFrame(animationId)
             containerModal.style.display = 'flex'
             finalScore.innerHTML = score
+
         }
 
         projectiles.forEach((projectile, projectileIndex) => {
@@ -207,7 +215,7 @@ function animate() {
 
 
                 if (enemy.radius - 10 > 15) {
-                    enemy.radius -= 10
+                    enemy.radius *= 0.5
                     setTimeout(() => {
                         projectiles.splice(projectileIndex, 1)
                     }, 0)
@@ -233,12 +241,12 @@ addEventListener('click', (event) => {
         event.clientX - player.x
     )
     const velocity = {
-        x: Math.cos(angle) * 10,
-        y: Math.sin(angle) * 10
+        x: Math.cos(angle) * 30,
+        y: Math.sin(angle) * 30
     }
     projectiles.push(
         new Projectile(
-            player.x, player.y, 3, 'white', velocity
+            player.x, player.y, 5, 'white', velocity
         )
     )
 })
@@ -247,7 +255,7 @@ addEventListener('click', (event) => {
 startGameBtn.addEventListener('click', () => {
     init()
     animate()
-    spawnEnemies()
+    spawnEnemiesInterval = setInterval(spawnEnemies, 800)
     containerModal.style.display = 'none'
 })
 

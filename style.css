@@ -56,7 +56,7 @@ canvas {
     padding-top: 15px;
     padding-bottom: 15px;
     border-radius: 10px;
-    
+    user-select: none;
 }
 
 #finalScore {
@@ -93,6 +93,7 @@ canvas {
      font-size: 1.5em;
     border: 1px solid blue;
     color: blue;
+    user-select: none;
  }
 
  #btn-start:hover{
