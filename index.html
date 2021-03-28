@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinh's Asteroids game</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="score-board"><span>Score: </span><span id="scoreCurrent">0</span></div>
+    <div class="instructions">
+        <p>W, A, S, D to move</p>
+        <p>LMB to shoot</p>
+    </div>
+    <div class="container" id="containerModal">
+        <div class="game-over">
+            <h1 id="finalScore">0</h1>
+            <p>points</p>
+            <div>
+                <button class="btn-grad" id="btn-start">Start</button>
+            </div>
+        </div>
+    </div>
+
+    <canvas></canvas>
+    <script src="script.js"></script>
+</body>
+
+</html>

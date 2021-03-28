@@ -1,0 +1,101 @@
+body {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: Consolas ,'Courier New', Courier, monospace !important;
+    color:white;
+    background-image: linear-gradient(to bottom right, #06071f, #0e162e, #0d162c, #26262c, #211d27);
+   
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+}
+
+canvas {
+    transition: 0.1;
+}
+
+.score-board {
+    position: fixed;
+    top: 5px;
+    left:5px;
+    font-size: 1.5em;
+    font-style: bold;
+    color:white;
+    user-select: none;
+}
+
+.instructions {
+    position: fixed;
+    top: 5px;
+    right:5px;
+    font-size: 1.5em;
+    font-style: bold;
+    color:white;
+    user-select: none;
+    text-align: right;
+}
+
+.container {
+    position:fixed;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+.game-over {
+    text-align: center;
+    background-color: rgba(232, 244, 255, 0.8);
+    min-width: 50vw;
+    color: black;
+    font-size: 1.5em;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 10px;
+    
+}
+
+#finalScore {
+    user-select: none;
+}
+
+.btn-grad {
+    background-color: transparent;
+   margin: 10px;
+   padding: 15px 45px;
+   text-align: center;
+   text-transform: uppercase;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: white;            
+   /* box-shadow: 0 0 20px rgb(255, 255, 255); */
+   border-radius: 0px;
+   /* display: block; */
+   text-decoration: none;
+   border: 1px solid #000000;
+    color: #000000;
+    outline: 0;
+    }
+
+ .btn-grad:hover {
+          background-position: right center; /* change the direction of the change here */
+   color: #fff;
+   text-decoration: none;
+   cursor: pointer;
+ }
+
+ #btn-start {
+     font-family: Consolas ,'Courier New', Courier, monospace;
+     font-size: 1.5em;
+    border: 1px solid blue;
+    color: blue;
+ }
+
+ #btn-start:hover{
+    background-image: linear-gradient(to right, #80bfff 25%, #8484ff  51%, #c386ff 100%);
+    color:yellow;
+ }
