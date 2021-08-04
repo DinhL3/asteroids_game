@@ -134,7 +134,7 @@ function init() {
 }
 
 function spawnEnemies() {
-    const radius = Math.random() * (150 - 15) + 15
+    const radius = Math.random() * (100 - 15) + 15
 
     let x
     let y
@@ -153,8 +153,8 @@ function spawnEnemies() {
         centerX - x
     )
     const velocity = {
-        x: Math.cos(angle) * 5,
-        y: Math.sin(angle) * 5
+        x: Math.cos(angle) * 3,
+        y: Math.sin(angle) * 3
     }
     enemies.push(new Enemy(x, y, radius, color, velocity))
     console.log('enemy spawned')
